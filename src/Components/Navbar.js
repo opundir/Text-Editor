@@ -1,33 +1,33 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { click } from "@testing-library/user-event/dist/click";
-import { Link } from "react-router-dom";
+// import { click } from "@testing-library/user-event/dist/click";
+// import { Link } from "react-router-dom";
 export default function Navbar(props) {
-  const [myStyle, setmyStyle] = useState({
-    color: "black",
-    backgroundColor: "white",
-  });
+  // const [myStyle, setmyStyle] = useState({
+  //   color: "black",
+  //   backgroundColor: "white",
+  // });
 
   let handleOnClick7 = () => {
-    document.body.style.backgroundColor = "DarkSeaGreen";
+    document.body.style.backgroundColor = "rgb(70, 155, 126) ";
   };
   let handleOnClick8 = () => {
-    document.body.style.backgroundColor = "Crimson";
+    document.body.style.backgroundColor = "rgb(183, 44, 51 )";
   };
   let handleOnClick9 = () => {
-    document.body.style.backgroundColor = "darksalmon";
+    document.body.style.backgroundColor = "rgb(234, 234, 43)";
   };
   let handleOnClick10 = () => {
-    document.body.style.backgroundColor = "CornflowerBlue";
+    document.body.style.backgroundColor = "LightBlue";
   };
   return (
     <nav
       className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
     >
       <div className="container-fluid">
-        <Link className="navbar-brand" to="/home">
+        <a className="navbar-brand" href="/home">
           {props.title}
-        </Link>
+        </a>
         <button
           className="navbar-toggler"
           type="button"
@@ -42,15 +42,15 @@ export default function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" to="/home">
+              <a className="nav-link active" aria-current="page" href="/Home">
                 Home
-              </Link>
+              </a>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/about">
+            {/* <li className="nav-item">
+              <a className="nav-link" href="/">
                 About
-              </Link>
-            </li>
+              </a>
+            </li> */}
           </ul>
 
           {/* <form className="d-flex" role="search">

@@ -3,26 +3,35 @@ import React, { useState } from "react";
 export default function Textform(props) {
   const handleUpClick = () => {
     // console.log("object");
-    let newText = text.toUpperCase();
-    setText(newText);
-    props.showAlert(" Succesfully changed in upper case", "success");
+    if (text === "") alert("No text available");
+    else {
+      let newText = text.toUpperCase();
+      setText(newText);
+      props.showAlert(" Succesfully changed in upper case", "success");
+    }
   };
   const handleUpClick1 = () => {
     // console.log("object");
-    let newText = text.toLowerCase();
-    setText(newText);
-    props.showAlert(" Succesfully changed in lower case", "success");
+    if (text === "") alert("No text available");
+    else {
+      let newText = text.toLowerCase();
+      setText(newText);
+      props.showAlert(" Succesfully changed in lower case", "success");
+    }
   };
   const handleUpClick2 = () => {
     // console.log("object");
-    let newText = "";
-    setText(newText);
-    props.showAlert(" Succesfully text is cleared", "success");
+    if (text === "") alert("Nothing to clear");
+    else {
+      let newText = "";
+      setText(newText);
+      props.showAlert(" Succesfully text is cleared", "success");
+    }
   };
   const handleUpClick3 = () => {
     // console.log("object");
     let k = text.split(" ").length;
-    if (text == "") alert("No text available");
+    if (text === "") alert("No text available");
     else alert(`The word Count is ${k}`);
   };
 
@@ -32,12 +41,39 @@ export default function Textform(props) {
     copyText.setSelectionRange(0, 99999);
     navigator.clipboard.writeText(copyText.value);
     // alert("Copied the text: " + copyText.value);.
-    props.showAlert(" Text Succesfully Copied", "success");
+    if (text !== "") props.showAlert(" Text Succesfully Copied", "success");
   };
 
   const handleUpClick5 = () => {
-    let newText = text.split(/[ ]+/);
-    setText(newText.join(" "));
+    if (text === "") alert("First enter some text");
+    else {
+      let newText = text.split(/[ ]+/);
+      setText(newText.join(" "));
+    }
+  };
+  const handleFindWord = () => {
+    if (text === "") alert("First enter some text");
+    else {
+      let input = prompt("Which Word you want to find? Type here: ");
+      if (text.search(input) >= 0)
+        alert("Yes this word/letter is founded in this text");
+      else alert("This word is not founded in this text");
+    }
+  };
+
+  const handleFindReplace = () => {
+    if (text === "") alert("First enter some text");
+    else {
+      let newtext1;
+      let input = prompt("Which Word you want to find? Type here:");
+      if (text.search(input) >= 0) {
+        let input1 = prompt(
+          "Yes this word founded. Please type new word to replace"
+        );
+        newtext1 = text.replace(input, input1);
+        setText(newtext1);
+      } else alert("This word is not founded in this text");
+    }
   };
   const handleOnChange = (event) => {
     // console.log("object");
@@ -61,6 +97,7 @@ export default function Textform(props) {
             onChange={handleOnChange}
             style={{
               backgroundColor: props.mode === "light" ? "white" : "silver",
+              border: "2px solid black",
             }}
             value={text}
             id="textBox"
@@ -85,6 +122,13 @@ export default function Textform(props) {
         <button className="btn btn-primary mx-2 my-2" onClick={handleUpClick5}>
           Remove Spaces
         </button>
+        <button className="btn btn-primary my-3" onClick={handleFindWord}>
+          Find Word
+        </button>
+
+        <button className="btn btn-primary my-3" onClick={handleFindReplace}>
+          Find & Replace
+        </button>
       </div>
 
       <div
@@ -96,12 +140,22 @@ export default function Textform(props) {
       >
         <h1>Your text Summary</h1>
         <li>
-          Your text have {text.length === 0 ? 0 : text.split(" ").length} words
-          sand {text.length}
+          Your text have{" "}
+          {
+            text.split(" ").filter((element) => {
+              return element.length !== 0;
+            }).length
+          }
+          words sand {text.length}
           characters.
         </li>
         <li>
-          You may take {text.length === 0 ? 0 : text.split(" ").length * 0.008}{" "}
+          You may take{" "}
+          {(text.split(" ").filter((element) => {
+            return element.length !== 0;
+          }).length *
+            8) /
+            1000}{" "}
           minutes to read it.
         </li>
         <li>Preview: {text}</li>
