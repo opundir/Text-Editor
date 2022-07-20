@@ -105,10 +105,10 @@ export default function Textform(props) {
           ></textarea>
         </div>
         <button className="btn btn-primary mx-2 my-2 " onClick={handleUpClick}>
-          Convert to upper case
+          Convert to Upper case
         </button>
         <button className="btn btn-primary my-2" onClick={handleUpClick1}>
-          Convert to upper case
+          Convert to Lower case
         </button>
         <button className="btn btn-primary mx-2  my-2" onClick={handleUpClick2}>
           Clear text
