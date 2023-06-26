@@ -1,7 +1,9 @@
 import "./App.css";
 import Navbar from "./Components/Navbar";
 import Textform from "./Components/Textform";
+import bottombar from "./Components/bottombar";
 import React, { useState } from "react";
+
 // import About from "./Components/About";
 import Alert from "./Components/Alert";
 // import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
@@ -63,7 +65,8 @@ function App() {
         {/* </Routes> */}
       </div>
       {/* </BrowserRouter> */}
-    </>
+      
+          </>
   );
 }
 
