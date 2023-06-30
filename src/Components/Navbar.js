@@ -25,7 +25,7 @@ export default function Navbar(props) {
       className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
     >
       <div className="container-fluid">
-        <a className="navbar-brand" href="https://opundir.github.io/Text-Editor/">
+        <a className="navbar-brand" >
           {props.title}
         </a>
         <button
@@ -42,7 +42,7 @@ export default function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="https://opundir.github.io/Text-Editor/">
+              <a className="nav-link active" aria-current="page" >
                 Home
               </a>
             </li>
